@@ -43,15 +43,15 @@ dependencies {
     implementation 'com.hbb20:ccp:2.2.0'
 
     //Room
-    implementation "android.arch.persistence.room:runtime:1.0.0"
-    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+    implementation "android.arch.persistence.room:runtime:1.1.1"
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
 
     //StatusBar
     implementation 'com.kelin.translucentbar:library:0.8.0'
 
     //ViewModel
-    implementation "android.arch.lifecycle:extensions:1.1.0"
-    implementation "android.arch.lifecycle:viewmodel:1.1.0"
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    implementation "android.arch.lifecycle:viewmodel:1.1.1"
 
     //Dialog
     implementation 'com.crowdfire.cfalertdialog:cfalertdialog:1.1.0'
