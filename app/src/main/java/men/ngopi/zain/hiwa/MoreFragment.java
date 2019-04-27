@@ -1,6 +1,6 @@
 package men.ngopi.zain.hiwa;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import com.kelin.translucentbar.library.TranslucentBarManager;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -28,6 +30,9 @@ public class MoreFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_more, container, false);
+
+        TranslucentBarManager translucentBarManager = new TranslucentBarManager(this);
+        translucentBarManager.translucent( this, view, R.color.colorAccent);
 
         ButterKnife.bind(this, view);
 

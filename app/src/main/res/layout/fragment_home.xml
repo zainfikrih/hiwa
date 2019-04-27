@@ -14,7 +14,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:fitsSystemWindows="true">
 
@@ -44,8 +44,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+        android:layout_height="match_parent">
         
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -60,7 +59,8 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorAccent">
+                    android:background="@color/colorAccent"
+                    android:fitsSystemWindows="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -86,7 +86,6 @@
                                 android:id="@+id/editText_numberphone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:editable="false"
                                 android:hint="Phone"
                                 android:inputType="phone"
                                 android:singleLine="true" />
@@ -101,6 +100,7 @@
                             android:hint="Enter your message (optional)"/>
 
                         <android.support.design.button.MaterialButton
+                            android:fitsSystemWindows="true"
                             android:layout_marginTop="@dimen/_10sdp"
                             android:id="@+id/btn_send"
                             android:layout_width="match_parent"

@@ -1,5 +1,6 @@
 package men.ngopi.zain.hiwa.database;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -12,11 +13,11 @@ import men.ngopi.zain.hiwa.model.Message;
 @Dao
 public interface MessageDao {
     @Query("SELECT * FROM message")
-    List<Message> getAll();
+    LiveData<List<Message>> getAll();
 
     @Insert
-    void insertAll(Message... users);
+    void insertAll(Message... messages);
 
     @Delete
-    void delete(Message user);
+    void delete(Message message);
 }

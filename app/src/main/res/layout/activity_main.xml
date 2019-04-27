@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,33 +8,38 @@
     android:orientation="vertical"
     android:background="@color/colorPrimary">
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <FrameLayout
             android:id="@+id/frame_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/_45sdp"
             android:layout_weight="1"
-            android:animateLayoutChanges="true">
+            android:animateLayoutChanges="true"
+            android:layout_above="@+id/bottom">
 
         </FrameLayout>
 
-        <android.support.design.widget.BottomNavigationView
-            android:id="@+id/navigation"
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:background="@color/colorPrimary"
-            app:menu="@menu/navigation"
-            app:itemTextColor="@color/nav_item"
-            app:itemIconTint="@color/nav_item">
+            android:layout_alignParentBottom="true"
+            android:fitsSystemWindows="false">
 
-        </android.support.design.widget.BottomNavigationView>
-    </FrameLayout>
+            <android.support.design.widget.BottomNavigationView
+                android:id="@+id/navigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                app:itemIconTint="@color/nav_item"
+                app:itemTextColor="@color/nav_item"
+                app:menu="@menu/navigation"/>
 
+        </android.support.design.widget.AppBarLayout>
+    </RelativeLayout>
 
-</android.support.constraint.ConstraintLayout>
+</android.support.design.widget.CoordinatorLayout>

@@ -1,19 +1,26 @@
 package men.ngopi.zain.hiwa;
 
-import android.app.Fragment;
+import android.arch.persistence.room.Room;
+import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.hbb20.CountryCodePicker;
+import com.kelin.translucentbar.library.TranslucentBarManager;
 
 import java.net.URLEncoder;
 
@@ -22,15 +29,17 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import men.ngopi.zain.hiwa.database.AppDatabase;
 import men.ngopi.zain.hiwa.database.DatabaseHelper;
+import men.ngopi.zain.hiwa.database.MessageDao;
 import men.ngopi.zain.hiwa.model.Message;
+
+import static men.ngopi.zain.hiwa.database.DatabaseHelper.DATABASE_NAME;
 
 public class HomeFragment extends Fragment {
 
     private View view;
     static private HomeFragment homeFragment;
-    private String numberStr;
-    private String messageStr;
-    private DatabaseHelper databaseHelper;
+    private String numberStr = "";
+    private String messageStr = "";
     private AppDatabase db;
 
     @BindView(R.id.ccp)
@@ -52,9 +61,23 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        db = databaseHelper.getDatabaseInstance(getActivity()).getDatabase();
+//        db = databaseHelper.getDatabaseInstance(getActivity()).getDatabase();
+//        db = AppDatabase.getInstance(MainActivity.getInstance().getApplicationContext());
+
+        TranslucentBarManager translucentBarManager = new TranslucentBarManager(this);
+        translucentBarManager.transparent(this, view, android.R.color.transparent);
 
         ButterKnife.bind(this, view);
+
+//
+//        if(getArguments() != null){
+//            numberStr = getArguments().getString("phone");
+//            messageStr = getArguments().getString("message");
+//            Toast.makeText(getActivity(), "Hai "+ messageStr,Toast.LENGTH_SHORT).show();
+//        }
+//
+//        numberPhone.setText(String.valueOf(numberStr));
+//        message.setText(String.valueOf(messageStr));
 
         countryCodePicker.registerCarrierNumberEditText(numberPhone);
         countryCodePicker.setNumberAutoFormattingEnabled(true);
@@ -77,15 +100,23 @@ public class HomeFragment extends Fragment {
                 } else {
                     messageStr = message.getText().toString();
 
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Message message = new Message();
-                            message.setmPhone(countryCodePicker.getFullNumberWithPlus());
-                            message.setmMessage(messageStr);
-                            db.messageDao().insertAll(message);
-                        }
-                    }).start();
+                    try {
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                Message message = new Message();
+                                message.setmPhone(countryCodePicker.getFullNumberWithPlus());
+                                message.setmMessage(messageStr);
+
+                                MessageDao messageDao = AppDatabase.getInstance(MainActivity.getInstance().getApplicationContext()).messageDao();
+                                messageDao.insertAll(message);
+
+                            }
+                        }).start();
+                    } catch (Exception e){
+
+                    }
 
                     try {
 
