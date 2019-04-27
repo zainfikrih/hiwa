@@ -18,7 +18,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import men.ngopi.zain.hiwa.adapter.MessageAdapter;
-import men.ngopi.zain.hiwa.database.AppDatabase;
 import men.ngopi.zain.hiwa.viewmodel.MessageViewModel;
 import men.ngopi.zain.hiwa.model.Message;
 
@@ -26,7 +25,6 @@ public class HistoryFragment extends Fragment {
 
     private View view;
     static private HistoryFragment historyFragment;
-    private AppDatabase db;
     private List<Message> messages = new ArrayList<>();
 
     @BindView(R.id.rv_history)
@@ -48,37 +46,11 @@ public class HistoryFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_history, container, false);
 
         ButterKnife.bind(this,view);
-//        db = DatabaseHelper.getDatabaseInstance(getActivity()).getDatabase();
-//        db = Room.databaseBuilder(getActivity().getApplicationContext(),
-//                AppDatabase.class, DATABASE_NAME).build();
-
-//        db = AppDatabase.getInstance(MainActivity.getInstance().getApplicationContext());
 
         TranslucentBarManager translucentBarManager = new TranslucentBarManager(this);
         translucentBarManager.translucent( this, view, R.color.colorAccent);
 
 
-//        try{
-//            new Thread(new Runnable() {
-//                @Override
-//                public void run() {
-//                    messages = db.messageDao().getAll();
-//                }
-//            }).start();
-//
-//        } catch (Exception e){
-//            Log.d("DISINI", e.getMessage());
-//        }
-
-//        men.ngopi.zain.hiwa.model.Message message = new men.ngopi.zain.hiwa.model.Message();
-//        message.setmPhone("999");
-//        message.setmMessage("99");
-//        message.setmId(0);
-//        ArrayList<Message> messages = new ArrayList<>();
-//        messages.add(message);
-//        messages.add(message);
-//        messages.add(message);
-//        messages.add(message);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
 

@@ -13,10 +13,12 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import men.ngopi.zain.hiwa.database.AppDatabase;
-import men.ngopi.zain.hiwa.database.DatabaseHelper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        AppCenter.start(getApplication(), "4138ab41-ca55-4d8a-acc8-36798bddaaa0", Analytics.class, Crashes.class);
 
         mainActivity = this;
 
@@ -54,10 +58,6 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
 
-//                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-//                fragmentTransaction.replace(R.id.frame_content, selectedFragment);
-//                fragmentTransaction.commit();
-//
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, selectedFragment).commit();
                 return true;
             }
@@ -69,9 +69,5 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         bottomNavigationView.setSelectedItemId(R.id.action_item1);
-    }
-
-    public void selectedNavigation(int item){
-        bottomNavigationView.setSelectedItemId(item);
     }
 }

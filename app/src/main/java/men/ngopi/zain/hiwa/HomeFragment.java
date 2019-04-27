@@ -28,11 +28,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import men.ngopi.zain.hiwa.database.AppDatabase;
-import men.ngopi.zain.hiwa.database.DatabaseHelper;
 import men.ngopi.zain.hiwa.database.MessageDao;
 import men.ngopi.zain.hiwa.model.Message;
-
-import static men.ngopi.zain.hiwa.database.DatabaseHelper.DATABASE_NAME;
 
 public class HomeFragment extends Fragment {
 
@@ -40,7 +37,6 @@ public class HomeFragment extends Fragment {
     static private HomeFragment homeFragment;
     private String numberStr = "";
     private String messageStr = "";
-    private AppDatabase db;
 
     @BindView(R.id.ccp)
     CountryCodePicker countryCodePicker;
@@ -61,23 +57,10 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home, container, false);
 
-//        db = databaseHelper.getDatabaseInstance(getActivity()).getDatabase();
-//        db = AppDatabase.getInstance(MainActivity.getInstance().getApplicationContext());
-
         TranslucentBarManager translucentBarManager = new TranslucentBarManager(this);
         translucentBarManager.transparent(this, view, android.R.color.transparent);
 
         ButterKnife.bind(this, view);
-
-//
-//        if(getArguments() != null){
-//            numberStr = getArguments().getString("phone");
-//            messageStr = getArguments().getString("message");
-//            Toast.makeText(getActivity(), "Hai "+ messageStr,Toast.LENGTH_SHORT).show();
-//        }
-//
-//        numberPhone.setText(String.valueOf(numberStr));
-//        message.setText(String.valueOf(messageStr));
 
         countryCodePicker.registerCarrierNumberEditText(numberPhone);
         countryCodePicker.setNumberAutoFormattingEnabled(true);
@@ -115,7 +98,7 @@ public class HomeFragment extends Fragment {
                             }
                         }).start();
                     } catch (Exception e){
-
+                        e.printStackTrace();
                     }
 
                     try {
