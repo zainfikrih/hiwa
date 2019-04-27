@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/_20sdp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"
+                android:src="@drawable/ic_logo"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hi WA"
+                android:textSize="@dimen/_24ssp"
+                android:textColor="@color/colorBlakGray"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Direct Chat - Chat without saving number"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/colorGray"/>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Version"
+                    android:textSize="@dimen/_14ssp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:textColor="@color/colorGray"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/version_name"
+                    android:textSize="@dimen/_14ssp"
+                    android:textColor="@color/colorGray"/>
+            </LinearLayout>
+
+            <android.support.design.button.MaterialButton
+                android:id="@+id/btn_rate_app"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rate our app"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

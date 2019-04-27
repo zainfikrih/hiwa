@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingTop="@dimen/_70sdp"
+            android:layout_marginBottom="@dimen/_90sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hi WA"
+                android:textSize="@dimen/_24ssp"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Direct Chat - Chat without saving number"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/colorPrimary"/>
+
+        </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+        
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_24sdp">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorAccent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+
+                            <com.hbb20.CountryCodePicker
+                                android:id="@+id/ccp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:ccp_countryPreference="id,us"
+                                app:ccp_defaultNameCode="id"
+                                app:ccp_autoDetectCountry="true"
+                                app:ccp_showFlag="false"
+                                />
+
+                            <EditText
+                                android:id="@+id/editText_numberphone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:editable="false"
+                                android:hint="Phone"
+                                android:inputType="phone"
+                                android:singleLine="true" />
+                        </LinearLayout>
+
+                        <EditText
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:id="@+id/editText_message"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textMultiLine"
+                            android:hint="Enter your message (optional)"/>
+
+                        <android.support.design.button.MaterialButton
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:id="@+id/btn_send"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="SEND MESSAGE"/>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>
