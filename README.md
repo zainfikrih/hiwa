@@ -9,7 +9,7 @@ Chat someone via Whatsapp without having to save the number.
 <br />
 
 ## Download on Google Play Store
-<a href="https://play.google.com/store/apps/details?id=men.ngopi.zain.hiwa" target="_blank"><img src="https://www.gstatic.com/android/market_images/web/play_prism_hlock_2x.png" alt="drawing" width="250"/></a>
+<a href="https://play.google.com/store/apps/details?id=men.ngopi.zain.hiwa" onclick="return ! window.open(this.href);"><img src="https://www.gstatic.com/android/market_images/web/play_prism_hlock_2x.png" alt="drawing" width="250"/></a>
 #### [Download | Hi WA](https://play.google.com/store/apps/details?id=men.ngopi.zain.hiwa)
 
 <br />
