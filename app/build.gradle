@@ -6,8 +6,8 @@ android {
         applicationId "men.ngopi.zain.hiwa"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 1002
-        versionName "1.0.1"
+        versionCode 1003
+        versionName "1.0.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -57,9 +57,9 @@ dependencies {
     implementation 'com.crowdfire.cfalertdialog:cfalertdialog:1.1.0'
 
     //AppCenter
-    def appCenterSdkVersion = '1.11.4'
-    implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
-    implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
+//    def appCenterSdkVersion = '1.11.4'
+//    implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
+//    implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'

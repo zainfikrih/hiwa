@@ -13,10 +13,6 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.microsoft.appcenter.AppCenter;
-import com.microsoft.appcenter.analytics.Analytics;
-import com.microsoft.appcenter.crashes.Crashes;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -37,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        AppCenter.start(getApplication(), "4138ab41-ca55-4d8a-acc8-36798bddaaa0", Analytics.class, Crashes.class);
+//        AppCenter.start(getApplication(), "4138ab41-ca55-4d8a-acc8-36798bddaaa0", Analytics.class, Crashes.class);
 
         mainActivity = this;
 
