@@ -1,14 +1,18 @@
 package men.ngopi.zain.hiwa.adapter;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.button.MaterialButton;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +21,8 @@ import com.crowdfire.cfalertdialog.CFAlertDialog;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import men.ngopi.zain.hiwa.HistoryFragment;
 import men.ngopi.zain.hiwa.HomeFragment;
 import men.ngopi.zain.hiwa.MainActivity;
@@ -53,8 +59,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
     @Override
     public void onBindViewHolder(@NonNull MessageAdapter.MessageViewHolder menuViewHolder, final int i) {
-        menuViewHolder.phone.setText(message.get(i).getmPhone());
-        menuViewHolder.message.setText(message.get(i).getmMessage());
+        menuViewHolder.phone.setText(message.get(i).mPhone);
+        menuViewHolder.message.setText(message.get(i).mMessage);
 
 //        view.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -69,6 +75,15 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 //                MainActivity.getInstance().selectedNavigation(R.id.action_item1);
 //            }
 //        });
+
+        menuViewHolder.copyMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Message", message.get(i).mMessage);
+                clipboard.setPrimaryClip(clip);
+            }
+        });
 
         view.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -119,12 +134,14 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
         private TextView phone;
         private TextView message;
+        private MaterialButton copyMessage;
 
         public MessageViewHolder(@NonNull View itemView) {
             super(itemView);
 
             phone = itemView.findViewById(R.id.item_phone);
             message = itemView.findViewById(R.id.item_message);
+            copyMessage = itemView.findViewById(R.id.img_copy_message);
         }
     }
 }

@@ -17,40 +17,70 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="@dimen/_10sdp">
+            android:orientation="horizontal"
+            android:padding="@dimen/_10sdp"
+            android:weightSum="10">
 
             <LinearLayout
+                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="@dimen/_10sdp">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="@dimen/_15sdp"
-                    android:layout_height="@dimen/_15sdp"
-                    android:src="@drawable/ic_local_phone"
-                    android:layout_marginRight="@dimen/_10sdp"/>
-
-                <TextView
-                    android:id="@+id/item_phone"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="0857863924913489"
-                    android:textSize="@dimen/_14ssp"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorBlakGray"/>
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/_10sdp">
+
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:src="@drawable/ic_local_phone"
+                        android:layout_marginRight="@dimen/_10sdp"/>
+
+                    <TextView
+                        android:id="@+id/item_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0857863924913489"
+                        android:textSize="@dimen/_14ssp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorBlakGray"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/item_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hai say"
+                    android:textSize="@dimen/_12ssp"/>
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/item_message"
+            <LinearLayout
+                android:layout_weight="9"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Hai say"
-                android:textSize="@dimen/_12ssp"/>
+                android:layout_height="match_parent">
 
+                <android.support.design.button.MaterialButton
+                    android:id="@+id/img_copy_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:icon="@drawable/ic_content"
+                    app:iconGravity="textStart"
+                    app:backgroundTint="@color/colorPrimary"
+                    app:iconTint="@color/colorAccent"
+                    app:iconSize="@dimen/_20sdp"
+                    app:rippleColor="@color/colorAccent"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+
+            </LinearLayout>
         </LinearLayout>
+
 
     </android.support.v7.widget.CardView>
 

@@ -89,8 +89,10 @@ public class HomeFragment extends Fragment {
                             public void run() {
 
                                 Message message = new Message();
-                                message.setmPhone(countryCodePicker.getFullNumberWithPlus());
-                                message.setmMessage(messageStr);
+                                message.mMessage = messageStr;
+                                message.mPhone = countryCodePicker.getFullNumberWithPlus();
+//                                message.setmPhone(countryCodePicker.getFullNumberWithPlus());
+//                                message.setmMessage(messageStr);
 
                                 MessageDao messageDao = AppDatabase.getInstance(MainActivity.getInstance().getApplicationContext()).messageDao();
                                 messageDao.insertAll(message);

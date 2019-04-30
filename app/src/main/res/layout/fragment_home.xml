@@ -88,7 +88,8 @@
                                 android:layout_height="wrap_content"
                                 android:hint="Phone"
                                 android:inputType="phone"
-                                android:singleLine="true" />
+                                android:singleLine="true"
+                                android:textIsSelectable="true"/>
                         </LinearLayout>
 
                         <EditText
@@ -97,7 +98,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textMultiLine"
-                            android:hint="Enter your message (optional)"/>
+                            android:hint="Enter your message (optional)"
+                            android:textIsSelectable="true"/>
 
                         <android.support.design.button.MaterialButton
                             android:fitsSystemWindows="true"
